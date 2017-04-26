@@ -35,29 +35,34 @@ foreach ($items as $item) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1><?= $pageTitle; ?></h1>
+    <div class="container">
+        <h1><?= $pageTitle; ?></h1>
 
-    <?php if(!empty($items)): ?>
-        <span><?= $remaining; ?> of <?= $itemsQuery->rowCount(); ?> remaining</span> [ <a href="archive.php">archive</a> ]
-        <ul class="items">
-            <?php foreach ($items as $item): ?>
-                <li>
-                    <?php if(!$item['done']): ?>
-                        <a href="tick.php?as=done&item=<?= $item['id']; ?>" class="done-tick"><i class="fa fa-square-o" aria-hidden="true"></i></a>
-                    <?php else: ?>
-                        <a href="tick.php?as=undone&item=<?= $item['id']; ?>" class="done-tick"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-                    <?php endif; ?>
-                    <span class="done-<?= $item['done'] ? 'true' : 'false'; ?>"><?= $item['text']; ?></span>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No items are added yet.</p>
-    <?php endif; ?>
+        <?php if(!empty($items)): ?>
+            <div class="summary"><?= $remaining; ?> of <?= $itemsQuery->rowCount(); ?> remaining <a href="archive.php"><button type="button" >archive</button></a></div>
+            <ul class="items">
+                <?php foreach ($items as $item): ?>
+                    <li>
+                        <?php if(!$item['done']): ?>
+                            <a href="tick.php?as=done&item=<?= $item['id']; ?>" class="item">
+                                <i class="fa fa-square-o tick" aria-hidden="true"></i>
+                        <?php else: ?>
+                            <a href="tick.php?as=undone&item=<?= $item['id']; ?>" class="item">
+                                <i class="fa fa-check-square-o tick" aria-hidden="true"></i>
+                        <?php endif; ?>
+                                <span class="done-<?= $item['done'] ? 'true' : 'false'; ?>"><?= $item['text']; ?></span>
+                            </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p class="empty">No items are added yet.</p>
+        <?php endif; ?>
 
-    <form action="add.php" method="post">
-        <input type="text" name="text" placeholder="add new todo here" autocomplete="off" required>
-        <input type="submit" name="add" id="add" value="Add">
-    </form>
+        <form action="add.php" method="post">
+            <input type="text" name="text" placeholder="add new todo here" autocomplete="off" required>
+            <input type="submit" name="add" id="add" value="Add">
+        </form>
+    </div>
 </body>
 </html>

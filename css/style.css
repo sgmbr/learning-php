@@ -1,19 +1,90 @@
-.done-true {
-    text-decoration: line-through;
-    color: grey;
+/* RESET */
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, a, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+    /* Cancel out some differences between browser defaults */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-.done-tick {
-    color: #444;
-    opacity: 0.4;
+* {
+    /* The width of an element will be the size of its border box, not its content box (which is the normal default). */
+    box-sizing: border-box;
+}
+
+main {
+    /* Make sure the browser knows how to display the HTML5 main element. */
+    display: block;
+}
+
+/* LAYOUT */
+
+.container {
+    width: 30rem;
+    margin: 2rem auto;
+    padding: 3rem 5rem;
+}
+
+/* TYPOGRAPHY */
+
+body {
+    font-family: serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.summary,
+.empty {
+    margin-bottom: 1rem;
+}
+
+.done-true {
+    text-decoration: line-through;
+}
+
+.item {
     text-decoration: none;
 }
 
 .items {
     list-style-type: none;
-    list-style-position: outside;
+    margin-bottom: 1rem;
 }
 
-.items li:hover .done-tick {
+
+/* COLOUR SCHEME & BORDERS */
+
+body {
+    background-color: #5a738c;
+}
+
+.container {
+    background-color: #fff;
+}
+
+.item {
+    color: #000;
+}
+
+.done-true {
+    color: grey;
+}
+
+.tick {
+    color: #444;
+    opacity: 0.4;
+}
+
+.item:hover .tick {
     opacity: 1;
 }
+
+
+/* NAVIGATION */
+/* IMAGES & VIDEOS */
+/* MEDIA QUERIES */

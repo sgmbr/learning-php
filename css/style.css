@@ -1,0 +1,19 @@
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.done-tick {
+    color: #444;
+    opacity: 0.4;
+    text-decoration: none;
+}
+
+.items {
+    list-style-type: none;
+    list-style-position: outside;
+}
+
+.items li:hover .done-tick {
+    opacity: 1;
+}

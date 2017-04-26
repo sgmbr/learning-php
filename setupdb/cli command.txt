@@ -1,0 +1,3 @@
+mysql -h us-cdbr-iron-east-03.cleardb.net -D heroku_3344723f0824080 -u b86c900f759671 -p
+
+password: ce394596
